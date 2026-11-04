@@ -9,3 +9,8 @@ From store_sales Inner join store_locations
     Where State like 'connecticut%' 
     order by Transaction_Date ASC;
     -- The total revenue From 01-01-2022 till 12-31-2025 is $2,392,222.44
+Select year(transaction_date), month(transaction_date), Sum(Sale_Amount), Avg(Sale_Amount)
+ From store_sales 
+  Where Store_ID between 865 and 871
+  Group by Transaction_Date;
+  
