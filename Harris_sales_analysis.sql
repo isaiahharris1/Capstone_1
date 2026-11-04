@@ -1,1 +1,1 @@
-I will be doing the west territory 
+I will be doing the East territory 
