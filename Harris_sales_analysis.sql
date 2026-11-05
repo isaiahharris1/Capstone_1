@@ -30,3 +30,13 @@ on store_sales.id
 Where region like 'east%' 
 and Store_ID between 865 and 871  
 Group by Region;
+-- The Region Sales is $4,193,142.54
+;
+
+Select products.Categoryid, Avg(store_sales.Sale_Amount) as Daily_Income , month(Transaction_date)
+From products
+Join store_sales
+On products.ProdNum = store_sales.Prod_Num
+Where store_sales.Store_ID between 865 and 871 
+Group by products.Categoryid, Transaction_Date
+Order by 2 ASC;
