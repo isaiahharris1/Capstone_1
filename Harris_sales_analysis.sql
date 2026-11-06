@@ -4,6 +4,11 @@ join management
 on store_locations.State = management.State 
 Where region = 'east' ;
 
+Select year(transaction_date), month(transaction_date), Sum(Sale_Amount)     
+From store_sales      
+Where Store_ID between 865 and 871   
+Group by Transaction_Date
+  
 Select Sum(Sale_Amount) as rev 
 From store_sales 
 Inner join store_locations  
