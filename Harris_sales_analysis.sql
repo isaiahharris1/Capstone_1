@@ -4,12 +4,20 @@ inner join management
 on store_locations.State = management.State 
 Where region = 'east' LIMIT 0, 1000;
 
-Select Sum(Sale_Amount) as rev , FORMAT(2392222.44, 'C') as currencyformat 
+Select Sum(Sale_Amount) as rev 
 From store_sales 
 Inner join store_locations  
   on store_sales.Store_ID = store_locations.StoreId    
 order by Transaction_Date ASC LIMIT 0, 1000;
 -- The total revenue from 01-01-2022 till 12-31-2025 is $2,392,222.44
+
+Select Sum(Sale_Amount) as rev, Transaction_Date
+From store_sales 
+Inner join store_locations  
+  on store_sales.Store_ID = store_locations.StoreId   
+  Where Store_ID between 865 and 871
+  group by Transaction_Date
+order by Transaction_Date ASC ;
 
 Select Distinct * 
 From store_sales 
